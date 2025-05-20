@@ -22,16 +22,50 @@ _One sunny morning, Budiman, an Informatics student, was assigned by his lecture
 **Answer:**
 
 - **Code:**
-
-  `put your answer here`
-
+  
+  `1. Update & Install software:`
+    ```bash
+    sudo apt -y update
+    sudo apt -y install qemu-system build-essential bison flex libelf-dev libssl-dev bc grub-common grub-pc libncurses-dev libssl-dev mtools grub-pc-bin xorriso tmux
+    ```
+  `2. Buat direktori osboot`
+    ```bash
+    mkdir -p osboot
+    cd osboot
+    ```
+  `3. Download dan ekstrak kernel linux`
+    ```bash
+    wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.1.tar.xz
+    tar -xvf linux-6.1.1.tar.xz
+    cd linux-6.1.1
+    ```
+  `4. Kommpilasi Kernel`
+    ```bash
+    make -j$(nproc)
+    ```
+  `5. Copy file bzImage ke /osboot`
+    ```bash
+     cp arch/x86/boot/bzImage ..
+    ```
+  `6. Install BusyBox`
+    ```bash
+    sudo apt install -y busybox-static
+    ```
 - **Explanation:**
 
-  `put your answer here`
+  - Persiapkan kernel Linux  
+    1. Update dan install software yang dibutuhkan seperti qemu, build-essential, bison, flex, dan lainnya menggunakan kode `1`.
+    2. Membuat direktori untuk pembuatan dan konfigurasi kernel menggunakan kode `2`. Disini nama direktorinya adalah `osboot`. Hasilnya ada di screenshot `1`.
+    3. Download dan ekstrak kernel linux menggunakan kode `3` (`wget` untuk donwload lalu ekstrak dengan `tar -xvf (-x untuk extract)` kemudian pindah dir ke folder yang baru hasil ekstrak dengan `cd`).
+    4. blabalbal 
+  
 
 - **Screenshot:**
 
-  `put your answer here`
+  1. Hasil `mkdir osboot`
+     ![image](https://github.com/user-attachments/assets/8d9fb6ee-7ba2-4697-91de-e8cd14206078)
+
+  2. asdasd
 
 ### Soal 2
 
