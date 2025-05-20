@@ -223,14 +223,23 @@ $1$yrCE8TmC$rdwOr9Lvj9YnZzKLodWly.
 **Answer:**
 
 - **Code:**
-
-  `put your answer here`
+  ```bash
+  cd myramdisk/etc
+  echo "root:x:0:" > group
+  echo "bin:x:1:root" >> group
+  echo "sys:x:2:root" >> group
+  echo "tty:x:5:root,Budiman,guest,praktikan1,praktikan2" >> group
+  echo "disk:x:6:root" >> group
+  echo "wheel:x:10:root" >> group
+  echo "users:x:100:Budiman,guest,praktikan1,praktikan2" >> group
+  ```
 
 - **Explanation:**
 
   `put your answer here`
 
 - **Screenshot:**
+  ![image](https://github.com/user-attachments/assets/30fdef1d-e119-4373-ab43-e281e7802ad9)
 
   `put your answer here`
 
