@@ -180,17 +180,24 @@ praktikan2:praktikan2
   3. Buat file `passwd` di `etc` lalu isi:
      ```bash
      cd myramdisk/etc
-     echo "root:<<$1$BhcvypYC$OSRhex7O3EqiMeilCS3RN.>>:0:0:root:/root:/bin/sh" > passwd
-     echo "Budiman:<<$1$APmP/CPo$9tJ1gc7LERFoNiokqTmXI1>>:1001:100:Budiman:/home/Budiman:/bin/sh" >> passwd
-     echo "guest:<<$1$7UdOu54I$/RlSgSEgMrV1AJ8CNirUv.>>:1001:100:guest:/home/guest:/bin/sh" >> passwd
-     echo "praktikan1:<<$1$vXI1Xt1N$RbmUtj2DjFiSF3fv2R5Te.>>:1001:100:praktikan1:/home/praktikan1:/bin/sh" >> passwd
-     echo "praktikan2:<<$1$yrCE8TmC$rdwOr9Lvj9YnZzKLodWly.>>:1001:100:praktikan2:/home/praktikan2:/bin/sh" >> passwd
+     echo "root:\$1\$BhcvypYC\$OSRhex7O3EqiMeilCS3RN.:0:0:root:/root:/bin/sh" > passwd
+     echo "Budiman:\$1\$APmP/CPo\$9tJ1gc7LERFoNiokqTmXI1:1001:100:Budiman:/home/Budiman:/bin/sh" >> passwd
+     echo "guest:\$1\$7UdOu54I\$/RlSgSEgMrV1AJ8CNirUv.:1002:100:guest:/home/guest:/bin/sh" >> passwd
+     echo "praktikan1:\$1\$vXI1Xt1N\$RbmUtj2DjFiSF3fv2R5Te.:1003:100:praktikan1:/home/praktikan1:/bin/sh" >> passwd
+     echo "praktikan2:\$1\$yrCE8TmC\$rdwOr9Lvj9YnZzKLodWly.:1004:100:praktikan2:/home/praktikan2:/bin/sh" >> passwd
      ```
      
 
 - **Explanation:**
 
   `put your answer here`
+  pwd:
+  $1$BhcvypYC$OSRhex7O3EqiMeilCS3RN.
+$1$APmP/CPo$9tJ1gc7LERFoNiokqTmXI1
+$1$7UdOu54I$/RlSgSEgMrV1AJ8CNirUv.
+$1$vXI1Xt1N$RbmUtj2DjFiSF3fv2R5Te.
+$1$yrCE8TmC$rdwOr9Lvj9YnZzKLodWly.
+
 
 - **Screenshot:**
 
@@ -200,7 +207,10 @@ praktikan2:praktikan2
   b. Hasil generate password
 
   ![image](https://github.com/user-attachments/assets/c2ff82d4-6260-46f7-a3c5-5c12a5006673)
-  c. 
+  c. Kode dan Hasil buat file `passwd`
+
+  ![image](https://github.com/user-attachments/assets/89d1c5f8-db12-46cc-917d-6204c819f460)
+
 
 
 
