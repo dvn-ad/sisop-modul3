@@ -104,7 +104,27 @@ _One sunny morning, Budiman, an Informatics student, was assigned by his lecture
 
 - **Code:**
 
-  `put your answer here`
+  1. Superuser
+     ```bash
+     sudo bash
+     ```
+  2. Buat directory `bin`, `dev`, `proc`, `sys`, `tmp`, `sisop` dan `/home`
+     ```bash
+     mkdir -p myramdisk/{bin,dev,proc,sys,tmp,sisop,home}
+     ```
+  4. Copy file device ke dir `dev`
+     ```bash
+     cp -a /dev/null myramdisk/dev
+     cp -a /dev/tty* myramdisk/dev
+     cp -a /dev/zero myramdisk/dev
+     cp -a /dev/console myramdisk/dev
+     ```
+  5. Copy BusyBox ke dir `bin`
+     ```bash
+     cp /usr/bin/busybox myramdisk/bin
+     cd myramdisk/bin
+     ./busybox --install .
+     ```
 
 - **Explanation:**
 
