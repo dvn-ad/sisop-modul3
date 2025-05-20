@@ -108,18 +108,18 @@ _One sunny morning, Budiman, an Informatics student, was assigned by his lecture
      ```bash
      sudo bash
      ```
-  2. Buat directory `bin`, `dev`, `proc`, `sys`, `tmp`, `sisop` dan `/home`
+  2. Buat directory `bin`, `dev`, `proc`, `sys`, `tmp` dan `sisop`.
      ```bash
-     mkdir -p myramdisk/{bin,dev,proc,sys,tmp,sisop,home}
+     mkdir -p myramdisk/{bin,dev,proc,sys,tmp,sisop}
      ```
-  4. Copy file device ke dir `dev`
+  3. Copy file device ke dir `dev`
      ```bash
      cp -a /dev/null myramdisk/dev
      cp -a /dev/tty* myramdisk/dev
      cp -a /dev/zero myramdisk/dev
      cp -a /dev/console myramdisk/dev
      ```
-  5. Copy BusyBox ke dir `bin`
+  4. Copy BusyBox ke dir `bin`
      ```bash
      cp /usr/bin/busybox myramdisk/bin
      cd myramdisk/bin
@@ -127,12 +127,24 @@ _One sunny morning, Budiman, an Informatics student, was assigned by his lecture
      ```
 
 - **Explanation:**
-
-  `put your answer here`
+  
+  Sebelum membuat direktori, Budiman harus menjadikan dirinya sebagai superuser dengan kode `i`. Setelah itu, Budiman membuat directory yang diminta dosen menggunakan kode `ii` dengan hasil pada screenshot `a`. Kemudian Budiman copy file dari host yang diperlukan ke `/myramdisk/dev/` (kode `iii`, hasil `b`). Lalu Budiman copy file lain dari host yang diperlukan ke `/myramdisk/bin/` (kode `iv`, hasil `c`).
 
 - **Screenshot:**
 
-  `put your answer here`
+  a. Isi dari dir `/myramdisk`
+
+     ![image](https://github.com/user-attachments/assets/c2203627-56fe-4029-af03-b23b97d093f9)
+
+  b. Isi dari dir `myramdisk/dev`
+
+     ![image](https://github.com/user-attachments/assets/e9daf89f-339e-4ea1-a083-f0df71dc372e)
+  c. Isi dari dir `myramdisk/bin`
+
+     ![image](https://github.com/user-attachments/assets/e044aefb-cc8c-4f3c-af5e-93cf17a3a4ce)
+
+
+ 
 
 ### Soal 3
 
