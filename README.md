@@ -55,17 +55,44 @@ _One sunny morning, Budiman, an Informatics student, was assigned by his lecture
 
   - Persiapkan kernel Linux  
     1. Update dan install software yang dibutuhkan seperti qemu, build-essential, bison, flex, dan lainnya menggunakan kode `1`.
-    2. Membuat direktori untuk pembuatan dan konfigurasi kernel menggunakan kode `2`. Disini nama direktorinya adalah `osboot`. Hasilnya ada di screenshot `1`.
-    3. Download dan ekstrak kernel linux menggunakan kode `3` (`wget` untuk donwload lalu ekstrak dengan `tar -xvf (-x untuk extract)` kemudian pindah dir ke folder yang baru hasil ekstrak dengan `cd`).
-    4. blabalbal 
+    2. Membuat direktori untuk pembuatan dan konfigurasi kernel menggunakan kode `2`. Disini nama direktorinya adalah `osboot`. Hasilnya ada di screenshot `i`.
+    3. Download dan ekstrak kernel linux menggunakan kode `3` (`wget` untuk donwload lalu ekstrak dengan `tar -xvf (-x untuk extract)` kemudian pindah dir ke folder hasil ekstrak dengan `cd`).
+    4. Lalu configurasi kernel dengan `make tinyconfig` dan `make menuconfig`. Hasil config akan tersimpah di file `.config`. Screenshot `iii` dan `iv`.
+    5. Kompilasi kernel (kode `4`) agar menghasilkan file `bzImage` (file kernel yang digunakan untuk booting). Hasilnya dapat dilihat di screenshot `v`
+    6. File `bzImage` akan terbuat di folder  `arch/x86/boot/`, kita copy file tersebut ke folder `osboot` dengan kode `5`. screenshot `vi`
+    7. Terakhir, install `BusyBox` dengan kode `6`. screenshot `vii`
   
 
 - **Screenshot:**
 
   1. Hasil `mkdir osboot`
+     
      ![image](https://github.com/user-attachments/assets/8d9fb6ee-7ba2-4697-91de-e8cd14206078)
+  2. Hasil `Download dan ekstrak kernel linux`
+     
+     ![image](https://github.com/user-attachments/assets/6f138adb-88e4-4ef0-8cea-e73a7252f86d)
+  3. Hasil `make tinyconfig`
+     
+     ![image](https://github.com/user-attachments/assets/b36a6ba0-7368-4f6a-9859-f2a070ed3dd2)
+  4. Tampilan dari `make menuconfig`
+     
+     ![image](https://github.com/user-attachments/assets/52115f49-2a20-4f09-bfe4-fc180198f39b)
+  5. file `bzImage`
+     
+     ![image](https://github.com/user-attachments/assets/ed2b7b22-8d68-4a21-8b30-2e85e2465e25)
+  6. Copy `bzImage`
+     
+     ![image](https://github.com/user-attachments/assets/a23d4edf-09fd-48e3-b8c3-89fde0398d75)
+  7. Install `BusyBox`
+      
+     ![image](https://github.com/user-attachments/assets/780021d8-50af-4bce-add6-7b189bee52da)
 
-  2. asdasd
+
+
+   
+
+     
+
 
 ### Soal 2
 
