@@ -248,7 +248,6 @@ praktikan2:praktikan2
   wheel:x:10:root
   users:x:100:Budiman,guest,praktikan1,praktikan2
   ```
-  [https://www.ibm.com/docs/en/aix/7.1.0?topic=files-etcgroup-file]
   `root`, `bin`, `sys`, `disk` dan `wheel` hanya bisa diakses root karena `root` hanya diakses oleh `root` sendiri, `bin` dan `sys` berisi executable yang dipakai dalam system administrator, `disk` berarti akses ke semua file dan `wheel`  artinya bisa membuat dirinya menjadi superuser (cmd `sudo`). Maka dari itu, yang bisa diakses oleh user selain root hanya `tty` dan `users`.
 - **Screenshot:**
   ![image](https://github.com/user-attachments/assets/30fdef1d-e119-4373-ab43-e281e7802ad9)
