@@ -235,9 +235,18 @@ $1$yrCE8TmC$rdwOr9Lvj9YnZzKLodWly.
   ```
 
 - **Explanation:**
-
-  `put your answer here`
-
+  Buat file `group` untuk mengatur otoritas tiap usernya. Pertama, pindah ke dir `etc` di `myramdisk` dengan `cd myramdisk/etc` lalu isi file group dengan:
+  ```bash
+  root:x:0:
+  bin:x:1:root
+  sys:x:2:root
+  tty:x:5:root,Budiman,guest,praktikan1,praktikan2
+  disk:x:6:root
+  wheel:x:10:root
+  users:x:100:Budiman,guest,praktikan1,praktikan2
+  ```
+  [https://www.ibm.com/docs/en/aix/7.1.0?topic=files-etcgroup-file]
+  `root`, `bin`, `sys`, `disk` dan `wheel` hanya bisa diakses root karena `root` hanya diakses oelh `root` sendiri, `bin`
 - **Screenshot:**
   ![image](https://github.com/user-attachments/assets/30fdef1d-e119-4373-ab43-e281e7802ad9)
 
