@@ -180,11 +180,11 @@ praktikan2:praktikan2
   3. Buat file `passwd` di `etc` lalu isi:
      ```bash
      cd myramdisk/etc
-     echo "root:\$1\$BhcvypYC\$OSRhex7O3EqiMeilCS3RN.:0:0:root:/root:/bin/sh" > passwd
-     echo "Budiman:\$1\$APmP/CPo\$9tJ1gc7LERFoNiokqTmXI1:1001:100:Budiman:/home/Budiman:/bin/sh" >> passwd
-     echo "guest:\$1\$7UdOu54I\$/RlSgSEgMrV1AJ8CNirUv.:1002:100:guest:/home/guest:/bin/sh" >> passwd
-     echo "praktikan1:\$1\$vXI1Xt1N\$RbmUtj2DjFiSF3fv2R5Te.:1003:100:praktikan1:/home/praktikan1:/bin/sh" >> passwd
-     echo "praktikan2:\$1\$yrCE8TmC\$rdwOr9Lvj9YnZzKLodWly.:1004:100:praktikan2:/home/praktikan2:/bin/sh" >> passwd
+     echo "root:\$1\$VrKjJwl2\$GoRr1PHLZJrxD91PgFqWv0:0:0:root:/root:/bin/sh" > passwd
+     echo "Budiman:\$1\$3/4J9lkC\$Mwr3jl1T0kso90lLVw4ol1:1001:100:Budiman:/home/Budiman:/bin/sh" >> passwd
+     echo "guest:\$1\$EO101Cv8\$VFfsPM1dgIYQyRGNWiPVs0:1002:100:guest:/home/guest:/bin/sh" >> passwd
+     echo "praktikan1:\$1\$iXR66due\$/DJkE5rPMhD.fRe5tHJG70:1003:100:praktikan1:/home/praktikan1:/bin/sh" >> passwd
+     echo "praktikan2:\$1\$Kw5Co11C\$Ok1l5W8hOgDfZlOPFwt0x.:1004:100:praktikan2:/home/praktikan2:/bin/sh" >> passwd
      ```
      
 
@@ -192,11 +192,11 @@ praktikan2:praktikan2
 
   Buat directory-directory yang diperlukan (`etc`,`root`,`home/Budiman`,`home/guest`,`home/praktikan1`,`home/praktikan2`) dengan kode `i` (hasil: screenshot `a`) lalu generate hash password yang diberi di soal dengan openssl (kode `ii` hasil `b`) hasilnya yaitu:
   ```
-  $1$BhcvypYC$OSRhex7O3EqiMeilCS3RN.
-  $1$APmP/CPo$9tJ1gc7LERFoNiokqTmXI1
-  $1$7UdOu54I$/RlSgSEgMrV1AJ8CNirUv.
-  $1$vXI1Xt1N$RbmUtj2DjFiSF3fv2R5Te.
-  $1$yrCE8TmC$rdwOr9Lvj9YnZzKLodWly.
+  $1$VrKjJwl2$GoRr1PHLZJrxD91PgFqWv0
+  $1$3/4J9lkC$Mwr3jl1T0kso90lLVw4ol1
+  $1$EO101Cv8$VFfsPM1dgIYQyRGNWiPVs0
+  $1$iXR66due$/DJkE5rPMhD.fRe5tHJG70
+  $1$Kw5Co11C$Ok1l5W8hOgDfZlOPFwt0x.
   ```
   Setelah itu, masukkan hash yang sudah di generate tadi ke file `passwd`. Pertama kita pindah direktori dulu ke dalam folder `etc` dengan `cd myramdisk/etc` lalu echo setiap baris hash (gunakan '\' untuk setiap '$' agar escape). Hasil : screenshot `c`
 
