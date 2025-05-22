@@ -365,9 +365,9 @@ echo -e "${BLUE}   ░░░░░   ░░░░░░        ░░░░░�
 1. Generate ASCII Art di [internet](https://www.asciiart.eu/text-to-ascii-art) (dengan font DOS Rebel)
 2. Buat File Banner Login
    
-   - Untuk menampilkan banner setiap user login dapat memanfaatkan file 
+   - Untuk menampilkan banner setiap user login dapat memanfaatkan file .
    `etc/profile`
-   - File ini dijalankan setiap user login ke shell
+   - File ini dijalankan setiap user login ke shell.
 
 3. Copas ASCII Art ke file `profile`
    
@@ -378,7 +378,7 @@ echo -e "${BLUE}   ░░░░░   ░░░░░░        ░░░░░�
 
 `clear`
 
-Untuk membersihkan layar terminal sebelum banner
+Untuk membersihkan layar terminal sebelum banner.
 
 `\033[...m`
 
@@ -413,15 +413,32 @@ Contoh tampilan saat user sudah login
 
 - **Code:**
 
-  `put your answer here`
+menambahkan di file `etc/profile`
+
+```bin
+...
+echo -e "\nHelloo $USER\n"
+```
 
 - **Explanation:**
+Untuk menyambut nama user setelah user login dan setelah banner, dapat menggunakan file `profile` yang sama pada no 6 dikarenakan file ini otomatis akan dijalan kan saat setiap user login ke shell.
 
-  `put your answer here`
+`echo -e` : Mencetak teks ke terminal, opsi `-e` untuk mengaktifkan interpretasi karakter khusus seperti `\n`.
+`$USER` : adalah environment variable yang otomatis berisi nama user yang sedang login.
 
 - **Screenshot:**
 
-  `put your answer here`
+  Penambahan kode di `etc/profile`
+  
+  ![soal7_1!](https://i.imgur.com/rxrw9UC.png)
+
+  Tampilan jika user `Budiman` sedang login
+
+  ![soal7_2!](https://i.imgur.com/jCkD8ZV.png)
+
+  Tampilan jika user `guest` sedang login
+
+  ![soal7_3!](https://i.imgur.com/fsuoxwO.png)
 
 ### Soal 8
 
