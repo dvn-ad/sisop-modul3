@@ -285,6 +285,7 @@ chmod 700 myramdisk/home/praktikan2
 - **Explanation:**
 
 `chown UID:GID` -> mengatur ownership direktori
+
 `chmod 700` -> mengatur izin akses ( 7 (full akses untuk owner (rwx)), 0 (no access untuk grup), 0 (no access untuk other) )
 
 | Direktori          | Pemilik (UID\:GID) | Permission |
@@ -294,9 +295,7 @@ chmod 700 myramdisk/home/praktikan2
 | `/home/praktikan1` | 1003:100           | `700`      |
 | `/home/praktikan2` | 1004:100           | `700`      |
 
-Dengan ini, hanya pemilik direktori yang bisa:
-Masuk ke direktori, Melihat isi, Membuat/menyimpan file
-User lain akan mendapat permission denied.
+Dengan ini, hanya pemilik direktori yang bisa masuk ke direktori, melihat isi, membuat/menyimpan file. Sedangkan user lain akan mendapat permission denied.
 
 - **Screenshot:**
 
@@ -421,10 +420,12 @@ echo -e "\nHelloo $USER\n"
 ```
 
 - **Explanation:**
+  
 Untuk menyambut nama user setelah user login dan setelah banner, dapat menggunakan file `profile` yang sama pada no 6 dikarenakan file ini otomatis akan dijalan kan saat setiap user login ke shell.
 
 `echo -e` : Mencetak teks ke terminal, opsi `-e` untuk mengaktifkan interpretasi karakter khusus seperti `\n`.
-`$USER` : adalah environment variable yang otomatis berisi nama user yang sedang login.
+
+`$USER` : adalah environment variable yang berisi nama user yang sedang login.
 
 - **Screenshot:**
 
