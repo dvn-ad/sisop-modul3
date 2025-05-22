@@ -208,11 +208,13 @@ praktikan2:praktikan2
   
   b. Hasil generate password
 
-  ![image](https://github.com/user-attachments/assets/c2ff82d4-6260-46f7-a3c5-5c12a5006673)
+  ![image](https://github.com/user-attachments/assets/ca068444-9dde-45d9-87a9-d53926c5ee0b)
+
   
   c. Kode dan Hasil buat file `passwd`
 
-  ![image](https://github.com/user-attachments/assets/89d1c5f8-db12-46cc-917d-6204c819f460)
+  ![image](https://github.com/user-attachments/assets/ea080cc2-6df5-4e66-918a-e58ebc7caf53)
+
 
 
 
