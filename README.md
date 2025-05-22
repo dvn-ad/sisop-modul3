@@ -265,15 +265,53 @@ praktikan2:praktikan2
 
 - **Code:**
 
-  `put your answer here`
+```sh
+chown 1001:100 myramdisk/home/Budiman
+chmod 700 myramdisk/home/Budiman
+
+chown 1002:100 myramdisk/home/guest
+chmod 700 myramdisk/home/guest
+
+chown 1003:100 myramdisk/home/praktikan1
+chmod 700 myramdisk/home/praktikan1
+
+chown 1004:100 myramdisk/home/praktikan2
+chmod 700 myramdisk/home/praktikan2
+```
 
 - **Explanation:**
 
-  `put your answer here`
+`chown UID:GID` -> mengatur ownership direktori
+`chmod 700` -> mengatur izin akses ( 7 (full akses untuk owner (rwx)), 0 (no access untuk grup), 0 (no access untuk other) )
+
+| Direktori          | Pemilik (UID\:GID) | Permission |
+| ------------------ | ------------------ | ---------- |
+| `/home/Budiman`    | 1001:100           | `700`      |
+| `/home/guest`      | 1002:100           | `700`      |
+| `/home/praktikan1` | 1003:100           | `700`      |
+| `/home/praktikan2` | 1004:100           | `700`      |
+
+Dengan ini, hanya pemilik direktori yang bisa:
+Masuk ke direktori, Melihat isi, Membuat/menyimpan file
+User lain akan mendapat permission denied.
 
 - **Screenshot:**
 
-  `put your answer here`
+Run command :
+
+![soal5_1!](https://i.imgur.com/cLqaay6.png)
+
+
+Melihat permission dan ownership menggunakan `ls -l`
+
+![soal5_2!](https://i.imgur.com/eD7zhH2.png)
+
+
+Point of view jika dari user `guest` (mencoba akses direktori yang bukan miliknya)
+
+![soal5_3!](https://i.imgur.com/TRJsutK.png)
+
+
 
 ### Soal 6
 
@@ -285,15 +323,82 @@ praktikan2:praktikan2
 
 - **Code:**
 
-  `put your answer here`
+```sh
+#!/bin/sh
+clear
+
+RED='\033[1;31m'
+ORANGE='\033[38;5;208m'
+YELLOW='\033[1;33m'
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+INDIGO='\033[38;5;54m'
+VIOLET='\033[1;35m'
+NC='\033[0m'
+
+echo -e "${RED} █████   ███   █████          ████                                            "
+echo -e "${ORANGE}░░███   ░███  ░░███          ░░███                                            "
+echo -e "${YELLOW} ░███   ░███   ░███   ██████  ░███   ██████   ██████  █████████████    ██████ "
+echo -e "${GREEN} ░███   ░███   ░███  ███░░███ ░███  ███░░███ ███░░███░░███░░███░░███  ███░░███"
+echo -e "${BLUE} ░░███  █████  ███  ░███████  ░███ ░███ ░░░ ░███ ░███ ░███ ░███ ░███ ░███████ "
+echo -e "${INDIGO}  ░░░█████░█████░   ░███░░░   ░███ ░███  ███░███ ░███ ░███ ░███ ░███ ░███░░░  "
+echo -e "${VIOLET}    ░░███ ░░███     ░░██████  █████░░██████ ░░██████  █████░███ █████░░██████"
+echo -e "${RED}     ░░░   ░░░       ░░░░░░  ░░░░░  ░░░░░░   ░░░░░░  ░░░░░ ░░░ ░░░░░  ░░░░░░  "
+echo -e "${ORANGE}                                                                              "
+echo -e "${YELLOW}                                                                              "
+echo -e "${GREEN}                                                                              "
+echo -e "${BLUE}  █████                   ███████     █████████   ██  ████████  ██████████    "
+echo -e "${INDIGO} ░░███                  ███░░░░░███  ███░░░░░███ ███ ███░░░░███░███░░░░░░█    "
+echo -e "${VIOLET} ███████    ██████     ███     ░░███░███    ░░░ ░░░ ░░░    ░███░███     ░     "
+echo -e "${RED}░░░███░    ███░░███   ░███      ░███░░█████████        ███████ ░█████████     "
+echo -e "${ORANGE}  ░███    ░███ ░███   ░███      ░███ ░░░░░░░░███      ███░░░░  ░░░░░░░░███    "
+echo -e "${YELLOW}  ░███ ███░███ ░███   ░░███     ███  ███    ░███     ███      █ ███   ░███    "
+echo -e "${GREEN}  ░░█████ ░░██████     ░░░███████░  ░░█████████     ░██████████░░████████     "
+echo -e "${BLUE}   ░░░░░   ░░░░░░        ░░░░░░░     ░░░░░░░░░      ░░░░░░░░░░  ░░░░░░░░ ${NC}"
+```
 
 - **Explanation:**
 
-  `put your answer here`
+1. Generate ASCII Art di [internet](https://www.asciiart.eu/text-to-ascii-art) (dengan font DOS Rebel)
+2. Buat File Banner Login
+   
+   - Untuk menampilkan banner setiap user login dapat memanfaatkan file 
+   `etc/profile`
+   - File ini dijalankan setiap user login ke shell
+
+3. Copas ASCII Art ke file `profile`
+   
+4. Menambahkan warna untuk estetika
+   
+   Menggunakan ANSI escape code agar tampil berwarna. Warna dibuat seperti pelangi.
+
+
+`clear`
+
+Untuk membersihkan layar terminal sebelum banner
+
+`\033[...m`
+
+adalah variabel warna terminal yang menggunakan ANSI escape codes.
+
+`echo -e`
+
+Mencetak teks ke layar, opsi `-e` digunakan agar escape character "ditafsirkan" bukan hanya dicetak sebagai teks biasa.
+
 
 - **Screenshot:**
 
-  `put your answer here`
+Membuat / Mengedit file `profile` menggunakan `gedit`
+
+![soal6_1!](https://i.imgur.com/QsmIVyD.png)
+
+Copy ASCII Art yang sudah dibuat di internet ke file ini, lalu menambahkan warna untuk estetika
+
+![soal6_2!](https://i.imgur.com/PAxEQvq.png)
+
+Contoh tampilan saat user sudah login
+
+![soal6_3!](https://i.imgur.com/ZCmFEfV.png)
 
 ### Soal 7
 
