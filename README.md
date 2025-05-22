@@ -228,32 +228,35 @@ praktikan2:praktikan2
 **Answer:**
 
 - **Code:**
+  Kode 1:
+  ```bash
+  chown 0:0 myramdisk/root
+  chmod 700 myramdisk/root
+  ```
+  Kode 2:
   ```bash
   cd myramdisk/etc
-  echo "root:x:0:" > group
-  echo "bin:x:1:root" >> group
-  echo "sys:x:2:root" >> group
-  echo "tty:x:5:root,Budiman,guest,praktikan1,praktikan2" >> group
-  echo "disk:x:6:root" >> group
-  echo "wheel:x:10:root" >> group
+  echo "root:x:0:root" > group
   echo "users:x:100:Budiman,guest,praktikan1,praktikan2" >> group
   ```
 
 - **Explanation:**
-  Buat file `group` untuk mengatur otoritas tiap usernya. Pertama, pindah ke dir `etc` di `myramdisk` dengan `cd myramdisk/etc` lalu isi file group dengan:
+  
+  Kode 1 : `chown` (change ownership) `myramdisk/root` dengan `0:0` yang yaitu UID 0 dan GID 0 (root). Lalu `chmod` (change mode), root dengan 700. Penjelasan 700:
+  
+  |owner|group|others|
+  |:-:|:-:|:-:|
+  |7|0|0|
+  |Bisa read, write, execute|tidak bisa apa-apa|tidak bisa apa-apa|
+  
+  Kode 2 : Selanjutnya buat file `group` di direktori `etc` untuk mengatur otoritas tiap usernya di dalam group. Pertama, pindah ke dir `etc` di `myramdisk` dengan `cd myramdisk/etc` lalu isi 
+  file group dengan:
   ```bash
-  root:x:0:
-  bin:x:1:root
-  sys:x:2:root
-  tty:x:5:root,Budiman,guest,praktikan1,praktikan2
-  disk:x:6:root
-  wheel:x:10:root
+  root:x:0:root
   users:x:100:Budiman,guest,praktikan1,praktikan2
   ```
-  `root`, `bin`, `sys`, `disk` dan `wheel` hanya bisa diakses root karena `root` hanya diakses oleh `root` sendiri, `bin` dan `sys` berisi executable yang dipakai dalam system administrator, `disk` berarti akses ke semua file dan `wheel`  artinya bisa membuat dirinya menjadi superuser (cmd `sudo`). Maka dari itu, yang bisa diakses oleh user selain root hanya `tty` dan `users`.
 - **Screenshot:**
-  ![image](https://github.com/user-attachments/assets/30fdef1d-e119-4373-ab43-e281e7802ad9)
-
+  INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI INGETIN BUAT ISI 
 
 ### Soal 5
 
