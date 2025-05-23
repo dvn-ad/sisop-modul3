@@ -652,7 +652,21 @@ find . | cpio -o -H newc | gzip > ../../myramdisk.gz
 
 - **Screenshot:**
 
-  `put your answer here`
+  ![Screenshot from 2025-05-23 20-04-16](https://github.com/user-attachments/assets/760187d4-7577-4f0b-b484-ac0ab7773911)
+
+  ![image](https://github.com/user-attachments/assets/1e52beda-1d10-42ca-a1a8-87dae851e266)
+
+  ![image](https://github.com/user-attachments/assets/583c2431-87a7-4f94-9041-274487f7cbf1)
+
+  ![image](https://github.com/user-attachments/assets/ddb4baf3-b622-490a-bd18-348088ddf173)
+
+  ![image](https://github.com/user-attachments/assets/778443fd-0995-4fc1-ad3e-849450183690)
+
+  ![image](https://github.com/user-attachments/assets/c40c0722-51f9-4fd5-b1fa-998015a9c4bc)
+
+  ![image](https://github.com/user-attachments/assets/d3caf124-145d-4423-895c-39755e24f8f1)
+
+
 
 ### Soal 10
 
