@@ -599,7 +599,14 @@ Contoh tampilan saat di run
 
 - **Code:**
 
-  `put your answer here`
+  ```
+  git clone https://github.com/morisab/budiman-text-editor.git
+  cd budiman-text-editor
+  ```
+  `g++ -static main.cpp -o budiman`
+  `cp budiman ../bin`
+  `chmod +x ../bin/budiman`
+  
 
 - **Explanation:**
 
