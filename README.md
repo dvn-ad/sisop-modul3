@@ -1,4 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Eu-CByJh)
+![image](https://github.com/user-attachments/assets/741691ef-38ac-432c-b380-38586ec69278)[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Eu-CByJh)
 |    NRP     |      Name      |
 | :--------: | :------------: |
 | 5025241179 | Erlangga Rizqi Dwi Raswanto |
@@ -452,15 +452,142 @@ Untuk menyambut nama user setelah user login dan setelah banner, dapat menggunak
 
 - **Code:**
 
-  `put your answer here`
+edit di `init`
+```bin
+...
+echo "budimanOS" > /proc/sys/kernel/hostname
 
-- **Explanation:**
+while true
+do
+    /bin/getty -L ttyS0 115200 vt100
+    sleep 1
+done
+...
+```
 
-  `put your answer here`
+edit di `etc/profile`
+
+```bin
+...
+PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+```
+---
+
+### **Explanation**
+
+###  **1. Mengubah tty dari `tty1` ke `ttyS0`**
+
+Dengan mengubah `getty` dari:
+
+```sh
+/bin/getty -L tty1 115200 vt100
+```
+
+menjadi:
+
+```sh
+/bin/getty -L ttyS0 115200 vt100
+```
+
+Maka tampilan terminal sistem operasi akan ditampilkan melalui serial port (`ttyS0`), bukan layar langsung (`tty1`). Hal ini membuat tampilan sistem dapat diakses dari terminal eksternal
+
+### **2. Edit hostname di file `init`**
+
+`echo "budimanOS" > /proc/sys/kernel/hostname` -> akan mengatur hostname ke `budimanOS` saat booting
+
+Hostname berfungsi sebagai nama identitas OS dan agar terlihat rapi saat diterminal
+
+
+### **3. Mengubah Tampilan Prompt dengan PS1**
+
+`PS1` adalah Prompt String 1,  yaitu variabel environment shell yang menentukan tampilan prompt setiap kali user mengetik perintah.
+
+Nilai `PS1` diambil dari terminal milik praktikan (Linux host) lalu copy paste di file `etc/profile` 
+
+Penjelasan PS1 yang digunakan :
+
+```sh
+PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+```
+
+#### **1. `\[\e]0;\u@\h: \w\a\]`**
+
+* Ini bagian pengaturan judul terminal (window title).
+* Hanya terlihat jika terminal mendukung GUI.
+* Komponen:
+  * `\e` → escape character (ASCII code 27)
+  * `\u` → username
+  * `\h` → hostname
+  * `\w` → working directory (path direktori saat ini)
+  * `\a` → bell character untuk mengakhiri escape sequence
+
+#### **2. `${debian_chroot:+($debian_chroot)}`**
+
+* Ini bagian akan menampilkan nama chroot (misalnya `(mychroot)`) jika environment variable `debian_chroot` terisi.
+* Berguna jika shell dijalankan dalam container atau recovery mode.
+* Kalau tidak dalam chroot, bagian ini tidak tampil sama sekali.
+
+#### **3. `\[\033[01;32m\]\u@\h\[\033[00m\]`**
+
+* Menampilkan teks `username@hostname` dalam warna hijau terang.
+* Komponen:
+  * `\033[01;32m` → ANSI escape code untuk bold + hijau terang
+  * `\u@\h` → menampilkan `username@hostname`
+  * `\033[00m` → mengembalikan warna ke default (reset)
+
+#### **4. `:`**
+
+* Tanda pemisah antara hostname dan path direktori.
+* Digunakan agar prompt lebih mudah dibaca, contoh hasilnya:
+  ```sh
+  budiman@osbudiman:/home/budiman$
+  ```
+
+#### **5. `\[\033[01;34m\]\w\[\033[00m\]`**
+
+* Menampilkan *irektori kerja saat ini (working directory) dalam warna biru terang.
+* Komponen:
+  * `\033[01;34m` → ANSI escape code untuk biru terang
+  * `\w` → current working directory
+  * `\033[00m` → reset warna kembali ke default
+
+#### **6. `\$`**
+* Menampilkan simbol akhir prompt:
+  * `#` → untuk root
+  * `$` → untuk user biasa
+* Spasi di akhir membuat tampilan prompt lebih rapi dan terpisah dari perintah yang akan diketik.
+
+### **4. Run QEMU**
+
+Agar semua perubahan berfungsi dengan baik, harus menjalankan QEMU dengan parameter yang sesuai yaitu dengan :
+
+```sh
+qemu-system-x86_64 \
+  -smp 2 \
+  -m 256 \
+  -nographic \
+  -kernel bzImage \
+  -initrd myramdisk.gz \
+  -append "console=ttyS0"
+```
+yaitu dengan tambahan `-append "console=ttyS0"` untuk memberitahu kernel untuk menggunakan ttyS0 sebagai console output utama
 
 - **Screenshot:**
 
-  `put your answer here`
+Edit pada file `init`
+
+![soal8_init!](https://i.imgur.com/i0VJV6l.png)
+
+
+Edit pada file `etc/profile`
+
+![soal8_ps1!](https://i.imgur.com/k4Hnsiw.png)
+
+
+Contoh tampilan saat di run
+
+![soal8_terminal!](https://i.imgur.com/24YBrGW.png)
+
 
 ### Soal 9
 
