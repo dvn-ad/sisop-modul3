@@ -678,15 +678,87 @@ find . | cpio -o -H newc | gzip > ../../myramdisk.gz
 
 - **Code:**
 
-  `put your answer here`
+  ```
+  cd osboot
+  mkdir -p mylinuxiso/boot/grub
+  ```
+  ```
+  cp bzImage mylinuxiso/boot
+  cp myramdisk.gz mylinuxiso/boot
+  ```
+
+  
+  ```
+  cd mylinuxiso/boot/grub
+  nano grub.cfg
+  ```
+  isi `file grub.cfg` dengan kode dibawah
+  ```
+  set timeout=5
+  set default=0
+  
+  menuentry "MyLinux" {
+    linux /boot/bzImage
+    initrd /boot/myramdisk.gz
+  }
+  ```
+  ```
+  cd ../../..
+  grub-mkrescue -o mylinux.iso mylinuxiso
+  ```
 
 - **Explanation:**
 
-  `put your answer here`
+  1. **Masuk ke direktori `osboot`**:
+
+   ```bash
+   cd osboot
+   ```
+
+2. **Buat struktur direktori ISO**:
+
+   ```bash
+   mkdir -p mylinuxiso/boot/grub
+   ```
+
+3. **Salin file kernel dan root filesystem**:
+
+   ```bash
+   cp bzImage mylinuxiso/boot
+   cp myramdisk.gz mylinuxiso/boot
+   ```
+
+4. **Buat file konfigurasi GRUB**:
+   Buat file `grub.cfg` di `mylinuxiso/boot/grub` dengan isi:
+
+   ```cfg
+   set timeout=5
+   set default=0
+
+   menuentry "MyLinux" {
+     linux /boot/bzImage
+     initrd /boot/myramdisk.gz
+   }
+   ```
+
+   > File ini akan membuat menu GRUB yang menampilkan pilihan boot bernama "MyLinux", dan mengarahkan sistem untuk menggunakan kernel dan initrd yang sudah kita sediakan.
+
+5. **Buat file ISO bootable**:
+   Jalankan perintah berikut dari direktori `osboot`:
+   ```bash
+   grub-mkrescue -o mylinux.iso mylinuxiso
+   ```
 
 - **Screenshot:**
 
-  `put your answer here`
+  ![image](https://github.com/user-attachments/assets/88305be6-cf25-452f-a838-3f9497e91fe2)
+
+  ![image](https://github.com/user-attachments/assets/1e35e884-2fb8-4f54-92e6-2e933c5333f0)
+
+  ![image](https://github.com/user-attachments/assets/9a532e49-8caa-416e-b581-a706c8dd63c1)
+
+  ![image](https://github.com/user-attachments/assets/e5aa0fe3-128e-4738-8e6e-f2bf2954a885)
+
 
 ---
 
