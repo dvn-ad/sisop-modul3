@@ -603,14 +603,52 @@ Contoh tampilan saat di run
   git clone https://github.com/morisab/budiman-text-editor.git
   cd budiman-text-editor
   ```
-  `g++ -static main.cpp -o budiman`
-  `cp budiman ../bin`
-  `chmod +x ../bin/budiman`
+  
+  `g++ -static main.cpp -o budimans`
+  
+  ```
+  cp budimans ../bin/
+  chmod +x ../bin/budimans
+  ```
+
+  ```
+  cd ..
+  find . | cpio -o -H newc | gzip > ../../myramdisk.gz
+  ```
+
+  
   
 
 - **Explanation:**
 
-  `put your answer here`
+1. Clone Repository
+
+Pertama-tama, clone source code dari text editor ke dalam direktori kerja:
+```
+git clone https://github.com/morisab/budiman-text-editor.git
+cd budiman-text-editor
+```
+2. Compile Binary Secara Statik
+
+Binary default hasil g++ bersifat dinamis dan tidak kompatibel dengan initramfs yang tidak memiliki shared libraries. Oleh karena itu, binary perlu dikompilasi secara statik:
+```
+g++ -static main.cpp -o budimans
+```
+3. Pindahkan ke Direktori /bin
+
+Salin binary budimans ke dalam direktori /bin pada struktur root filesystem initramfs:
+```
+cp budimans ../bin/
+chmod +x ../bin/budimans
+```
+4. Repack initramfs
+
+Setelah binary berhasil ditambahkan dan diberi hak eksekusi, repack initramfs untuk menghasilkan file myramdisk.gz baru:
+```
+cd ..
+find . | cpio -o -H newc | gzip > ../../myramdisk.gz
+```
+
 
 - **Screenshot:**
 
